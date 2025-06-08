@@ -4,6 +4,7 @@ import Navbar from './components/airbnb/Navbar'
 import Hero from './components/airbnb/Hero'
 // import data from './data'
 import AirbnbCard from './components/airbnb/AirbnbCard'
+import data from './data'
 
 const App = () => {
   // stats = {
@@ -20,22 +21,17 @@ const App = () => {
       <Navbar />
       <Hero />
       <section className="cards-list">
-        <AirbnbCard
-          title="Life Lessons with Katie Zaferes"
-          price={100}
-          coverImg="katie-zaferes.svg"
-          location="Online"
-          openSpots={0}
-        />
-
-        <AirbnbCard
-          title="Learn Wedding Photography"
-          price={125}
-          coverImg="wedding-photography.svg"
-          location="Online"
-          openSpots={27}
-        />
-        
+        {data.map(card => {
+          return (
+            <AirbnbCard
+              title={card.title}
+              price={card.price}
+              coverImg={card.coverImg}
+              location={card.location}
+              openSpots={card.openSpots}
+            />
+          )
+        })}
       </section>
     </div >
   )
